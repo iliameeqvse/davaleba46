@@ -1,0 +1,5 @@
+Django>=5.1,<6.0
+Pillow>=10.0
+# Bonus S3 support
+boto3>=1.34
+django-storages>=1.14
