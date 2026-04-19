@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GalleryHub</title>
+</head>
+<body>
+  <h1>GalleryHub Photos</h1>
+  {% if photos %}
+    <ul>
+      {% for photo in photos %}
+        <li>
+          <h2>{{ photo.title }}</h2>
+          <p>{{ photo.description }}</p>
+          <p>Category: {{ photo.category.name }}</p>
+          <p>Uploaded: {{ photo.uploaded_at }}</p>
+          <img src="{{ photo.image.url }}" alt="{{ photo.title }}" width="300">
+          <p><a href="{{ photo.image.url }}">Image URL</a></p>
+          {% if photo.file %}
+            <p><a href="{{ photo.file.url }}">Attached file URL</a></p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No photos uploaded yet.</p>
+  {% endif %}
+</body>
+</html>
